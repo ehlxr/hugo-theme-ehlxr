@@ -1,0 +1,12 @@
+// ==============================
+// Post footer
+// =============================
+
+.footer {
+  margin-top: $footer-margin-top;
+  float: left;
+  width: $global-body-width;
+
+  @import "_footer/social";
+  @import "_footer/copyright";
+}

@@ -1,0 +1,15 @@
+{{ range $key, $value := .Site.Taxonomies }}
+<div class="sidebar-{{ $key | singularize | lower }}">
+    <hr>
+    <h5>
+        <a href="/{{$key}}/">{{ T ($key | singularize) }}</a>
+    </h5>
+
+    {{ range $k, $v := first 10 $value.ByCount }}
+        <a href="{{ $.Site.BaseURL}}/{{ $key }}/{{ $v.Name | urlize }}" class="taxonomy-name">
+            {{ $v.Name }}
+            <span class="taxonomy-counts">{{ len $v.Pages }}</span>
+        </a>
+    {{ end }}
+</div>
+{{ end }}

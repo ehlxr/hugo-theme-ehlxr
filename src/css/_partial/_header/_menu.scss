@@ -1,0 +1,43 @@
+// ==============================
+// Menu
+// =============================
+
+.site-navbar {
+  float: right;
+
+  .menu {
+    display: inline-block;
+    position: relative;
+    padding-left: 0;
+    padding-right: 25px;
+    font-family: $global-serif-font-family;
+
+    .menu-item {
+      display: inline-block;
+      padding: 0 8px;
+
+      & + .menu-item {
+        margin-left: $menu-item-margin-left;;
+      }
+
+      @include underline-from-center;
+
+      &:before {
+          border: none;
+          border-radius: 2px;
+          height: stretch;
+          background: #e1e1e1;
+      }
+    }
+
+    .menu-item-link {
+      font-size: $menu-link-font-size;
+    }
+  }
+}
+
+@include max-screen() {
+  .site-navbar {
+    display: none;
+  }
+}

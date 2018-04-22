@@ -1,0 +1,29 @@
+<div class="logo-wrapper">
+  <a href="{{ "/" | relLangURL }}" class="logo">
+    {{- if .Site.Params.logoTitle -}}
+      {{ .Site.Params.logoTitle }}
+    {{- else -}}
+      {{ .Site.Title }}
+    {{- end -}}
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    {{ $currentPage := . }}
+    {{ $menus := .Site.Params.icons }}
+    {{ range .Site.Menus.main -}}
+      <li class="menu-item {{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+        <a class="menu-item-link" href="{{ .URL | safeURL }}">
+          {{ $id := .Identifier }}
+          {{- range $menus -}}
+            {{- if eq $id .id -}}
+              <i class="fa fa-fw fa-{{.icon}}"></i>
+            {{- end -}}
+          {{- end }}
+          {{ .Name }}
+        </a>
+      </li>
+    {{- end }}
+  </ul>
+</nav>

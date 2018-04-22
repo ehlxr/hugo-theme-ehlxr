@@ -1,0 +1,79 @@
+<div class="sidebar" id="sidebar" {{ if and (not .IsHome) (not .Params.sidebar) }} style="display: none" {{ end }}>
+  <div class="sidebar-about">
+    <!-- <hr> -->
+    <a href="/about/">
+      <!-- <h5>{{ T "about" }}</h5> -->
+      <img src="{{ .Site.Author.avatar }}">
+    </a>
+    <p>{{ .Site.Author.description }}</p>
+
+    <nav>
+      <div class="site-state-item">
+        <a href="/post/">
+          <span class="site-state-item-count">{{ len .Data.Pages }}</span>
+          <span> 日志</span>
+        </a>
+      </div>
+      <div class="site-state-item">
+        <a href="/categories/">
+          <span class="site-state-item-count">{{ len .Site.Taxonomies.categories }}</span>
+          <span> 分类</span>
+        </a>
+      </div>
+
+      <div class="site-state-item">
+        <a href="/tags/">
+          <span class="site-state-item-count">{{ len .Site.Taxonomies.tags }}</span>
+          <span> 标签</span></a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="sidebar-social">
+    <hr>
+    <h5> {{ T "social" }} </h5>
+    {{- range $name, $path := .Site.Params.social }}
+      {{- if $path }}
+        {{- $names := split $name "-" }}
+        <a href="{{ $path | safeURL }}">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+              {{ range $k,$v := $names }}
+               {{if eq $k 1}}
+                <i class="fa fa-{{$v}} fa-stack-1x fa-inverse"></i>
+                {{end}}
+              {{ end }}
+          </span>
+        </a>
+        {{- end }}
+      {{- end }}
+      {{ if .Site.LanguagePrefix -}}
+        <a href="{{ .Site.LanguagePrefix | absURL }}/index.xml" type="application/rss+xml" title="rss">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      {{- else -}}
+        <a href="{{ .Site.RSSLink }}" type="application/rss+xml" title="rss">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      {{- end }}
+  </div>
+
+  {{ partial "sidebar-taxonomy.html" . }}
+
+  <div class="sidebar-friends">
+    <hr>
+    <h5>  {{ T "links" }}  </h5>
+    <ul class="list-inline">
+    {{- range .Site.Params.friends }}
+    <li><a href="{{ .link }}">{{ .name }}</a></li>
+    {{- end }}
+    </ul>
+  </div>
+
+</div>
