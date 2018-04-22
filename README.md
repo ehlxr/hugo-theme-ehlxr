@@ -2,7 +2,7 @@
 
 A responsive and simple theme for Hugo
 
-> Modified based on the [hexo-theme-even](https://github.com/olOwOlo/hugo-theme-even)
+> Modified based on the [hugo-theme-even](https://github.com/olOwOlo/hugo-theme-even)
 
 [Demo](https://ehlxr.github.io)
 
