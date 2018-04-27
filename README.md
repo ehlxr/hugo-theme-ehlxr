@@ -6,6 +6,8 @@ A responsive and simple theme for Hugo
 
 [Demo](https://ehlxr.github.io)
 
-## Screenshots
+# New features
 
-![even-showcase](https://raw.githubusercontent.com/ehlxr/hugo-theme-even/master/images/screenshot.jpg)
+### 1、 sidebar display
+### 2、 local search
+...
