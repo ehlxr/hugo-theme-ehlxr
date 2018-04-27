@@ -6,7 +6,7 @@ A responsive and simple theme for Hugo
 
 [Demo](https://ehlxr.github.io)
 
-# New features
+## New features
 
 ### 1、 sidebar display
 ### 2、 local search
