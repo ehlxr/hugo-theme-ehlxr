@@ -1,16 +1,17 @@
-import {Even} from './ehlxr.js'
+import {Ehlxr} from './ehlxr.js'
 
 import '../css/style.scss'
 
 $(document).ready(function () {
-  Even.backToTop()
-  Even.mobileNavbar()
-  Even.toc()
-  Even.fancybox()
+  Ehlxr.backToTop()
+  Ehlxr.mobileNavbar()
+  Ehlxr.toc()
+  Ehlxr.fancybox()
+  Ehlxr.search()
 })
 
-Even.flowchart()
-Even.sequence()
+Ehlxr.flowchart()
+Ehlxr.sequence()
 
 hljs.initHighlighting()
-Even.highlight()
+Ehlxr.highlight()

@@ -1,6 +1,6 @@
 {
   "name": "ehlxr-src",
-  "version": "3.1.1",
+  "version": "0.0.1",
   "description": "ehlxr source file",
   "main": "index.js",
   "scripts": {

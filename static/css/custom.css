@@ -1,0 +1,9 @@
+.search-result-title {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+p.search-result {
+    border-bottom: 1px dashed #ccc;
+    padding: 5px 0;
+}

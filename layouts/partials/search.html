@@ -1,0 +1,45 @@
+<div class="search-popup" id="search-popup">
+    <div class="search-header clearfix">
+        <span class="search-icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span class="popup-btn-close">
+            <i class="fa fa-times-circle"></i>
+        </span>
+        <div class="search-input-wrapper">
+            <input placeholder="搜索..." type="text" id="search-input">
+        </div>
+    </div>
+</div>
+<div class="search-pop-overlay"></div>
+<script src="{{ "https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/algoliasearch.min.js" | absURL }}"></script>
+<script src="{{ "https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/autocomplete.min.js" | absURL }}"></script>
+<script>
+    var client = algoliasearch("ZEQC88XBX5", "18f218cfb288b3c6e29cacfe6a15002c");
+    var index = client.initIndex('hugo-blog');
+    autocomplete('#search-input',{ hint: false }, {
+            source: autocomplete.sources.hits(index, { hitsPerPage: 8 }),
+            displayKey: 'name',
+            templates: {
+                suggestion: function (suggestion) {
+                    console.info(suggestion);
+                    var d = suggestion.date.substring(0, 10);
+                    var date = d.replace(/-/g, "/");
+
+                    var href = window.location.origin + "/";
+                    var slug = suggestion.slug;
+                    if (slug == undefined) {
+                        if (suggestion.uri.indexOf(d) != -1) {
+                            href += date
+                        }
+                        var reg = /[\u3002|\uff1f|\uff01|\uff0c|\u3001|\uff1b|\uff1a|\u201c|\u201d|\u2018|\u2019|\uff08|\uff09|\u300a|\u300b|\u3008|\u3009|\u3010|\u3011|\u300e|\u300f|\u300c|\u300d|\ufe43|\ufe44|\u3014|\u3015|\u2026|\u2014|\uff5e|\ufe4f|\uffe5]/g;
+                        href += "/" + suggestion.title.toLowerCase().replace(/\s/g, "-").replace(/\[|\]|\s/g, "").replace(reg, "");
+                    } else {
+                        href +=  date + "/" + slug;
+                    }
+
+                    return '<span>' + '<a href="' + href + '">' + suggestion._highlightResult.title.value + '</a></span>';
+                }
+            }
+        });
+</script>

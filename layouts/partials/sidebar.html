@@ -1,4 +1,5 @@
-<div class="sidebar" id="sidebar" {{ if and (not .IsHome) (not .Params.sidebar) }} style="display: none" {{ end }}>
+<div class="sidebar" id="sidebar">
+<!-- <div class="sidebar" id="sidebar" {{ if and (not .IsHome) (not .Params.sidebar) }} style="display: none" {{ end }}> -->
   <div class="sidebar-about">
     <!-- <hr> -->
     <a href="/about/">
@@ -68,7 +69,9 @@
 
   <div class="sidebar-friends">
     <hr>
-    <h5>  {{ T "links" }}  </h5>
+    <a href="/link/">
+      <h5> {{ T "links" }} </h5>
+    </a>
     <ul class="list-inline">
     {{- range .Site.Params.friends }}
     <li><a href="{{ .link }}">{{ .name }}</a></li>

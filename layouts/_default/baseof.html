@@ -12,16 +12,20 @@
 </head>
 <body>
   {{ partial "slideout.html" . }}
-    <header id="header" class="header">
-    <div class="header-div">
-        {{ partial "header.html" . }}
-    </div>
-    </header>
+  <header id="header" class="header">
+  <div class="header-div">
+      {{ partial "header.html" . }}
+  </div>
+  </header>
+  {{/*
+  {{ partial "search.html" . }}
+  */}}
   <div class="container" >
     <main id="main" class="main">
       <!-- sidebar -->
-      {{ partial "sidebar.html" . }}
-
+      {{ if or .IsHome .Params.sidebar }}
+        {{ partial "sidebar.html" . }}
+      {{ end }}
       <div class="content-wrapper" id="mobile-panel">
         <div id="content" class="content">
           {{ block "content" . }}{{ end }}
