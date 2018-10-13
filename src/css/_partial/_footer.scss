@@ -4,8 +4,8 @@
 
 .footer {
   margin-top: $footer-margin-top;
-  float: left;
-  width: $global-body-width;
+  // float: left;
+  // width: $global-body-width - $post-toc-width;
 
   @import "_footer/social";
   @import "_footer/copyright";

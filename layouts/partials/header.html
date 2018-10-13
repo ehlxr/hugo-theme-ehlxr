@@ -1,3 +1,4 @@
+{{ if or (not .IsHome) (eq .Site.Params.home_mode "post") }}
 <div class="logo-wrapper">
   <a href="{{ "/" | relLangURL }}" class="logo">
     {{- if .Site.Params.logoTitle -}}
@@ -32,4 +33,4 @@
       </a>
     </li> -->
   </ul>
-</nav>
+</nav>{{ end }}

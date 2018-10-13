@@ -12,7 +12,7 @@
     <span class="item-title">{{ T "postLink" }}</span>
     <span class="item-content"><a href="{{ .Site.BaseURL }}{{ .URL }}" target="_blank">
       <script>
-        document.write(decodeURI(location))
+        document.write(decodeURI(location.origin + location.pathname))
       </script>
     </a></span>
   </p>

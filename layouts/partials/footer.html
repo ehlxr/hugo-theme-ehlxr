@@ -1,21 +1,3 @@
-<div class="social-links">
-  {{- range $name, $path := .Site.Params.social }}
-    {{- if $path }}
-      {{- $names := split $name "-" }}
-      {{ range $k,$v := $names }}
-        {{if eq $k 1}}
-          <a href="{{ $path | safeURL }}" class="iconfont icon-{{ $v }}" title="{{ $v }}"></a>
-        {{end}}
-      {{ end }}
-    {{- end }}
-  {{- end }}
-  {{ if .Site.LanguagePrefix -}}
-    <a href="{{ .Site.LanguagePrefix | absURL }}/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-  {{- else -}}
-    <a href="{{ .Site.RSSLink }}" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-  {{- end }}
-</div>
-
 <div class="copyright">
   <span class="power-by">
     {{ (printf (T "powered") `<a class="hexo-link" href="https://gohugo.io">Hugo</a>`) | safeHTML }}
@@ -24,6 +6,19 @@
   <span class="theme-info">
     {{ T "theme" }} -
     <a class="theme-link" href="https://github.com/ehlxr/hugo-theme-ehlxr">Ehlxr</a>
+  </span>
+
+  <span class="copyright-year">
+    {{- $current := now.Format "2006" }}
+    &copy;
+    {{ if ne .Site.Params.since $current }}
+      {{ .Site.Params.since }} -
+    {{ end }}
+    {{- $current }}
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">{{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}{{ end }}</span>
   </span>
 
   {{ if .Site.Params.busuanzi.enable -}}
@@ -41,16 +36,5 @@
   </div>
   {{- end }}
 
-  <span class="copyright-year">
-    {{- $current := now.Format "2006" }}
-    &copy;
-    {{ if ne .Site.Params.since $current }}
-      {{ .Site.Params.since }} -
-    {{ end }}
-    {{- $current }}
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">{{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}{{ end }}</span>
-  </span>
+
 </div>

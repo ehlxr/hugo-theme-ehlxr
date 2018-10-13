@@ -1,0 +1,79 @@
+<div class="index_info">
+    <div class="index_avatar">
+        <a href="/about/">
+            <img src="{{ .Site.Author.avatar }}">
+        </a>
+    </div>
+    <div class="index_title">
+        {{- if .Site.Params.logoTitle -}}
+        {{ .Site.Params.logoTitle }}
+        {{- else -}}
+        {{ .Site.Title }}
+        {{- end -}}
+    </div>
+
+    <div class="index_desc">
+        <p>{{ .Site.Author.description }}</p>
+    </div>
+
+    <div class="index_social">
+        {{- range $name, $path := .Site.Params.social }}
+        {{- if $path }}
+        {{- $names := split $name "-" }}
+        <a href="{{ $path | safeURL }}">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                {{ range $k,$v := $names }}
+                {{if eq $k 1}}
+                <i class="fa fa-{{$v}} fa-stack-1x fa-inverse"></i>
+                {{end}}
+                {{ end }}
+            </span>
+        </a>
+        {{- end }}
+        {{- end }}
+        {{ if .Site.LanguagePrefix -}}
+        <a href="{{ .Site.LanguagePrefix | absURL }}/index.xml" type="application/rss+xml" title="rss">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+        {{- else -}}
+        <a href="{{ .Site.RSSLink }}" type="application/rss+xml" title="rss">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+        {{- end }}
+    </div>
+
+    <div class="index_archive">
+        <div class="archive_title">
+            最新文章
+        </div>
+        <hr>
+        {{ $paginator := .Paginate (where (where .Data.Pages "Type" "post") ".Params.hiddenfromhomepage" "!=" true) }}
+        {{ range $paginator.Pages }}
+        <div class="archive_post">
+            <span class="post_time">
+                {{ .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
+            </span>
+            <span class="post_title">
+                <a href="{{ .URL }}" class="post_link">
+                    {{ .Title }}
+                </a>
+            </span>
+        </div>
+        {{ end }}
+        <div class="archive_post">
+            <span class="post_title">
+                <a href="/post" class="post_link">
+                    更多文章...
+                </a>
+            </span>
+        </div>
+
+    </div>
+</div>

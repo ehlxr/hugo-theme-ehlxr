@@ -11,19 +11,18 @@
   {{ partial "head.html" . }}
 </head>
 <body>
-  {{ partial "slideout.html" . }}
-  <header id="header" class="header">
-  <div class="header-div">
-      {{ partial "header.html" . }}
-  </div>
-  </header>
-  {{/*
-  {{ partial "search.html" . }}
-  */}}
   <div class="container" >
+    {{ partial "slideout.html" . }}
+    <header id="header" class="header">
+      <div class="header-div">
+        {{ partial "header.html" . }}
+      </div>
+    </header>
+    {{/* {{ partial "search.html" . }} */}}
+
     <main id="main" class="main">
       <!-- sidebar -->
-      {{ if or .IsHome .Params.sidebar }}
+      {{ if .Params.sidebar }}
         {{ partial "sidebar.html" . }}
       {{ end }}
       <div class="content-wrapper" id="mobile-panel">
@@ -33,11 +32,9 @@
         {{ partial "comments.html" . }}
       </div>
     </main>
-
     <footer id="footer" class="footer">
       {{ partial "footer.html" . }}
     </footer>
-
     <div class="back-to-top" id="back-to-top">
       <i class="iconfont icon-up"></i>
     </div>

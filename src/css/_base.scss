@@ -65,8 +65,16 @@ a {
 }
 
 .container {
-  margin: 0 auto;
-  width: $global-body-width;
+  // margin: 0 auto;
+  // width: $global-body-width;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    .main {
+      flex: 1;
+    }
 }
 
 @include max-screen() {
@@ -98,8 +106,10 @@ a {
 }
 
 .content-wrapper {
-  padding: $global-container-padding;
-  float: left;
+  // padding: $global-container-padding;
+  // float: left;
+  margin-left: auto;
+  margin-right: auto;
   width: 760px;
 }
 
