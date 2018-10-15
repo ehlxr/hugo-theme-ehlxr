@@ -7,8 +7,8 @@
   <!-- gitalk -->
   {{- if .Site.Params.gitalk.owner -}}
     <div id="gitalk-container" class="gitalk-container"></div>
-    <link rel="stylesheet" href="{{ "lib/gitalk/gitalk-1.2.2.min.css" | relURL }}">
-    <script src="{{ "lib/gitalk/gitalk-1.2.2.min.js" | relURL }}"></script>
+    <link rel="stylesheet" href="{{ "lib/gitalk/gitalk.css" | relURL }}">
+    <script src="{{ "lib/gitalk/gitalk.min.js" | relURL }}"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
         id: '{{md5 .URL}}',
