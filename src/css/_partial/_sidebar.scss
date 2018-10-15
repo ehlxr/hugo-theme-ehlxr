@@ -1,9 +1,13 @@
 .sidebar {
-  float: right;
-  width: 180px;
+  // float: right;
+  width: 200px;
+  position: absolute;
+  z-index: 3;
+  left: 768px;
   padding: 10px;
   border-radius: 5px;
   color: #bfbfbf !important;
+  // margin-right: 100px;
 
   hr {
     // margin-top: 20px;

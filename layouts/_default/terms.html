@@ -1,6 +1,11 @@
 {{ define "title" }}{{ T .Data.Plural }} - {{ .Site.Title }}{{ end }}
 
 {{ define "content" }}
+  <!-- sidebar -->
+  {{ if .Site.Params.sidebar }}
+  {{ partial "sidebar.html" . }}
+  {{ end }}
+
   {{ $name := .Data.Plural -}}
   {{ $terms := .Data.Terms.ByCount -}}
   {{ $length := len $terms -}}
