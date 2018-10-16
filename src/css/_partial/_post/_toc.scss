@@ -49,11 +49,11 @@
 
   hr {
     border: 0;
-    border-top: 1px solid #eee;
+    border-top: 1px solid $deputy-color;
   }
 
   .toc-taxonomy a {
-    color: #bfbfbf !important;
+    // color: $deputy-color !important;
     display: -webkit-inline-box !important;
     line-height: 25px !important;
     /* padding: 2px 10px; */
@@ -61,7 +61,7 @@
   }
 
   a:hover {
-    color: #c05b4d;
+    color: $theme-color;
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);

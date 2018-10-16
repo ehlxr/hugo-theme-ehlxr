@@ -6,17 +6,17 @@
   // border-radius: 5px;
   // margin-top: 50px;
 
+  a {
+    &:hover,
+    &:focus {
+      color: $theme-color;
+    }
+  }
+
   .index_social{
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
-
-    a {
-      &:hover,
-      &:focus {
-        color: #c05b4d !important;
-      }
-    }
   }
 
   .index_title {

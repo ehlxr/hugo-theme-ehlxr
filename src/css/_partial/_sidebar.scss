@@ -6,22 +6,22 @@
   left: 768px;
   padding: 10px;
   border-radius: 5px;
-  color: #bfbfbf !important;
+  color: $deputy-color !important;
   // margin-right: 100px;
 
   hr {
     // margin-top: 20px;
     // margin-bottom: 20px;
     border: 0;
-    border-top: 1px solid #eee;
+    border-top: 1px solid $deputy-color;
   }
 
   a {
-    color: #bfbfbf!important;
+    color: $deputy-color !important;
 
     &:hover,
     &:focus {
-      color: #c05b4d !important;
+      color: $theme-color;
     }
   }
 
@@ -127,7 +127,7 @@
     position: relative;
     top: -5px;
     right: -2px;
-    color: #c05b4d;
+    color: $theme-color;
     /* font-size: 1px; */
   }
 
@@ -136,7 +136,7 @@
       border: 1px solid rgb(191, 191, 191);
       border-radius: 999em;
       padding: 0 10px;
-      color: #fff;
+      // color: $deputy-color;
       line-height: 24px;
       font-size: 12px;
       text-decoration: none;

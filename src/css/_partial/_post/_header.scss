@@ -17,10 +17,10 @@
     color: $post-meta-font-color;
 
     a {
-      color: #c05b4d !important;
+      color: $theme-color;
 
       &:hover {
-        border-bottom: 1px solid #c05b4d;
+        border-bottom: 1px solid $theme-color;
       }
     }
 
