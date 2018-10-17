@@ -1,15 +1,36 @@
 <div class="index_info">
+
+    <div class="index_title">
+        {{- if .Site.Params.logoTitle -}}
+            {{ .Site.Params.logoTitle | safeHTML }}
+        {{- else -}}
+            {{ .Site.Title | safeHTML }}
+        {{- end -}}
+    </div>
     <div class="index_avatar">
         <a href="/about/">
             <img src="{{ .Site.Author.avatar }}">
         </a>
     </div>
-    <div class="index_title">
-        {{- if .Site.Params.logoTitle -}}
-        {{ .Site.Params.logoTitle }}
-        {{- else -}}
-        {{ .Site.Title }}
-        {{- end -}}
+
+    <div class="index_menu">
+        <ul id="menu" class="menu">
+            {{ $currentPage := . }}
+            {{ $menus := .Site.Params.icons }}
+            {{ range .Site.Menus.main }}
+            <li class="menu_item {{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+                <a class="menu_item_link" href="{{ .URL | safeURL }}">
+                    {{ $id := .Identifier }}
+                    {{ range $menus }}
+                        {{ if eq $id .id }}
+                            <i class="fa fa-fw fa-{{.icon}}"></i>
+                        {{ end }}
+                    {{ end }}
+                    {{ .Name }}
+                </a>
+            </li>
+            {{ end }}
+        </ul>
     </div>
 
     <div class="index_desc">
@@ -17,6 +38,10 @@
     </div>
 
     <div class="index_social">
+        <!-- <div class="social_title">
+            社交
+        </div> -->
+
         {{- range $name, $path := .Site.Params.social }}
         {{- if $path }}
         {{- $names := split $name "-" }}
@@ -49,32 +74,11 @@
         {{- end }}
     </div>
 
-    <nav class="index_site">
-        <div class="site-state-item">
-            <a href="/post/">
-                <span class="site-state-item-count">{{ len (where .Site.AllPages "Type" "post") }}</span>
-                <span> 日志</span>
-            </a>
-        </div>
-        <div class="site-state-item">
-            <a href="/categories/">
-                <span class="site-state-item-count">{{ len .Site.Taxonomies.categories }}</span>
-                <span> 分类</span>
-            </a>
-        </div>
-
-        <div class="site-state-item">
-            <a href="/tags/">
-                <span class="site-state-item-count">{{ len .Site.Taxonomies.tags }}</span>
-                <span> 标签</span></a>
-        </div>
-    </nav>
-
     <div class="index_archive">
         <div class="archive_title">
             最新文章
         </div>
-        <hr>
+
         {{ $paginator := .Paginate (where (where .Data.Pages "Type" "post") ".Params.hiddenfromhomepage" "!=" true) }}
         {{ range $paginator.Pages }}
         <div class="archive_post">
