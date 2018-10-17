@@ -15,8 +15,7 @@
 
   .index_social{
     // text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 5px;
 
     .social_title {
       margin: 20px 0;
@@ -50,21 +49,21 @@
     }
   }
 
-  // .index_site {
-  //   // text-align: center;
-  //   // margin-top: 25px;
-  //   display: inline-block;
+  .index_site {
+    text-align: center;
+    // margin-top: 25px;
+    display: none;
 
-  //   .site-state-item {
-  //     display: inline-block;
-  //     padding: 0 20px;
+    .site-state-item {
+      display: inline-block;
+      padding: 0 20px;
 
-  //     .site-state-item-count {
-  //       display: block;
-  //       text-align: center;
-  //     }
-  //   }
-  // }
+      .site-state-item-count {
+        display: block;
+        text-align: center;
+      }
+    }
+  }
 
   .index_avatar {
     // margin-top: 40px;
@@ -136,5 +135,14 @@
         }
       }
     }
+  }
+}
+
+@include max-screen($toc-max-sreen-width) {
+  .index_menu {
+    display: none !important;
+  }
+  .index_site {
+    display: block !important;
   }
 }

@@ -33,6 +33,27 @@
         </ul>
     </div>
 
+        <nav class="index_site">
+            <div class="site-state-item">
+                <a href="/post/">
+                    <span class="site-state-item-count">{{ len (where .Site.AllPages "Type" "post") }}</span>
+                    <span> 日志</span>
+                </a>
+            </div>
+            <div class="site-state-item">
+                <a href="/categories/">
+                    <span class="site-state-item-count">{{ len .Site.Taxonomies.categories }}</span>
+                    <span> 分类</span>
+                </a>
+            </div>
+
+            <div class="site-state-item">
+                <a href="/tags/">
+                    <span class="site-state-item-count">{{ len .Site.Taxonomies.tags }}</span>
+                    <span> 标签</span></a>
+            </div>
+        </nav>
+
     <div class="index_desc">
         {{ .Site.Author.description }}
     </div>
@@ -46,11 +67,11 @@
         {{- if $path }}
         {{- $names := split $name "-" }}
         <a href="{{ $path | safeURL }}">
-            <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
+            <span class="fa-stack">
+                <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
                 {{ range $k,$v := $names }}
                 {{if eq $k 1}}
-                <i class="fa fa-{{$v}} fa-stack-1x fa-inverse"></i>
+                    <i class="fa fa-{{$v}} "></i>
                 {{end}}
                 {{ end }}
             </span>
@@ -59,16 +80,16 @@
         {{- end }}
         {{ if .Site.LanguagePrefix -}}
         <a href="{{ .Site.LanguagePrefix | absURL }}/index.xml" type="application/rss+xml" title="rss">
-            <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+            <span class="fa-stack">
+                <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
+                <i class="fa fa-github fa-stack-1x"></i>
             </span>
         </a>
         {{- else -}}
         <a href="{{ .Site.RSSLink }}" type="application/rss+xml" title="rss">
-            <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+            <span class="fa-stack">
+                <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
+                <i class="fa fa-rss fa-stack-1x "></i>
             </span>
         </a>
         {{- end }}

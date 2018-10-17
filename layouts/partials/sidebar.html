@@ -6,9 +6,9 @@
       <!-- <h5>{{ T "about" }}</h5> -->
       <img src="{{ .Site.Author.avatar }}">
     </a>
-    <p>{{ .Site.Author.description }}</p>
+    <!-- <p>{{ .Site.Author.description }}</p> -->
 
-    <nav>
+    <nav class="sidebar-site">
       <div class="site-state-item">
         <a href="/post/">
           <span class="site-state-item-count">{{ len (where .Site.AllPages "Type" "post") }}</span>
