@@ -81,18 +81,21 @@ a {
   .container {
     width: 100%;
     box-shadow: -1px -5px 5px $gray;
-
-    .post {
-      flex-shrink: inherit !important;
-    }
-
-    .archive_wrapper {
-      flex-shrink: inherit !important;
-    }
   }
 
   .content-wrapper {
     width: 100% !important;
+    .content {
+      display: block !important;
+
+      .post {
+        flex-shrink: inherit !important;
+      }
+
+      .archive_wrapper {
+        flex-shrink: inherit !important;
+      }
+    }
   }
 
   .content-wrapper {
@@ -128,6 +131,9 @@ a {
     .post {
       flex-basis: $global-content-width;
       flex-shrink: 0;
+
+      // 解决 flex 布局下 overflow 失效问题
+      width: 0;
     }
 
     .archive_wrapper {
