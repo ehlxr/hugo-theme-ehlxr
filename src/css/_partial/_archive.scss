@@ -5,6 +5,7 @@
 .archive {
   margin: $archive-margin;
   max-width: $archive-max-width;
+  flex: 0.9;
 
   .archive-title {
     font-family: $global-serif-font-family;

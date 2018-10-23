@@ -81,6 +81,14 @@ a {
   .container {
     width: 100%;
     box-shadow: -1px -5px 5px $gray;
+
+    .post {
+      flex-shrink: inherit !important;
+    }
+
+    .archive_wrapper {
+      flex-shrink: inherit !important;
+    }
   }
 
   .content-wrapper {
@@ -110,7 +118,26 @@ a {
   // float: left;
   margin-left: auto;
   margin-right: auto;
-  width: 760px;
+  width: $global-content-width;
+
+  .content {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+
+    .post {
+      flex-basis: $global-content-width;
+      flex-shrink: 0;
+    }
+
+    .archive_wrapper {
+      flex-basis: $global-content-width;
+      flex-shrink: 0;
+
+      display: flex;
+      flex-direction: column;
+    }
+  }
 }
 
 // make video fluid:

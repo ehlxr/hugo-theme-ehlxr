@@ -1,9 +1,10 @@
 .sidebar {
+  flex-shrink: 0;
   // float: right;
   width: 200px;
-  position: absolute;
-  z-index: 3;
-  left: 768px;
+  // position: absolute;
+  // z-index: 3;
+  // left: 768px;
   padding: 10px;
   border-radius: 5px;
   // color: $deputy-color !important;
