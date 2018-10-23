@@ -43,6 +43,10 @@
       display: block;
       margin: 0 auto;
       max-width: 96px;
+       -webkit-box-shadow: 0 0 0 0.3618em rgba(0, 0, 0, 0.05);
+      box-shadow: 0 0 0 0.3618em rgba(0, 0, 0, 0.05);
+      -webkit-border-radius: 100%;
+      border-radius: 100%;
 
       /* 设置循环动画 [animation: (play)动画名称 (2s)动画播放时长单位秒或微秒 (ase-out)动画播放的速度曲线为以低速结束
         (1s)等待1秒然后开始动画 (1)动画播放次数(infinite为循环播放) ]*/
