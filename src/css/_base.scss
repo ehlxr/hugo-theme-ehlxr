@@ -90,9 +90,11 @@ a {
 
       .post {
         flex-shrink: inherit !important;
+        width: 100% !important;
       }
 
       .archive_wrapper {
+        display: block !important;
         flex-shrink: inherit !important;
       }
     }
